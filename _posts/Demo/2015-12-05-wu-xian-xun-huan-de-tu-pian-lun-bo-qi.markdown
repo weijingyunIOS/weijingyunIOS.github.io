@@ -2,8 +2,8 @@
 layout: post
 title: "无限循环的图片轮播器"
 date: 2015-04-05 19:27:52 +0800
-comments: true
-categories: [iOS Banner]
+categories: Demo
+tags: [iOS Objective-C]
 categories: 
 ---
 
