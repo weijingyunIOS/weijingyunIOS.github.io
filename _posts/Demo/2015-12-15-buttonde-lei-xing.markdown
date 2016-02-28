@@ -2,7 +2,8 @@
 layout: post
 title: "button的类型"
 date: 2015-03-15 12:19:34 +0800
-comments: true
+categories: Demo
+tags: [iOS Objective-C]
 categories: 
 ---
 简介：
