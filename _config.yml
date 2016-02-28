@@ -7,27 +7,27 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: LeeWong
+  email: wangli_100000@163.com
+  link: http://leewongsnail.github.io/
+  weibo: 
+  github: https://github.com/LeeWongSnail
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: 王立的博客 
+description: 王立的博客
+url: http://leewongsnail.github.io/
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+avatar: http://img.hoop8.com/attachments/1602/8561790581128.jpg
+favicon: http://img.hoop8.com/attachments/1602/8561790581128.jpg
 
 # google analytics 设置
 ga:
-  id: UA-54767140-1
-  url: yansu.org
+  id: 
+  url: https://github.com/LeeWongSnail
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: LeeWong
