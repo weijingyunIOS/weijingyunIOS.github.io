@@ -7,11 +7,11 @@ kramdown:
 
 # 作者信息
 author: 
-  name: LeeWong
-  email: wangli_100000@163.com
-  link: http://leewongsnail.github.io/
+  name: yunyunxiao
+  email: 975517365@qq.com
+  link: http://weijingyunios.github.io/
   weibo: 
-  github: https://github.com/LeeWongSnail
+  github: https://github.com/weijingyunios
 
 # 站点信息
 title: 魏景云的博客 
@@ -30,4 +30,4 @@ ga:
 
 # disqus 设置
 disqus:
-  shortname: LeeWong
+shortname: 
