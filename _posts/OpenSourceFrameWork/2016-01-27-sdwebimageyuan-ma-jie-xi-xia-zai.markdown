@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SDWebImage源码解析-----下载"
+title: SDWebImage源码解析-----下载
 date: 2016-01-27 14:40:28 +0800
 comments: true
 category:OpenSourceFrameWork

@@ -13,6 +13,7 @@ category: Tools
 	在上篇中的《objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？》曾提到objc_msgSend在“消息传递”中的作用。在“消息传递”过程中，objc_msgSend的动作比较清晰：首先在 Class 中的缓存查找 IMP （没缓存则初始化缓存），如果没找到，则向父类的 Class 查找。如果一直查找到根类仍旧没有实现，则用_objc_msgForward函数指针代替 IMP 。最后，执行这个 IMP 。
 	
 	为了展示消息转发的具体动作，这里尝试向一个对象发送一条错误的消息，并查看一下_objc_msgForward是如何进行转发的。
+	
 ![icon](https://camo.githubusercontent.com/c06953c83cf1fd56eff670b88e4c3e0cc739c62d/687474703a2f2f692e696d6775722e636f6d2f556a626d5676422e706e67)
 
 操作过程：
