@@ -3,7 +3,7 @@ layout: post
 title: "iOS 基础动画"
 date: 2014-12-11 18:18:10 +0800
 comments: true
-category:Objective-C
+category: Objective-C
  
 ---
 

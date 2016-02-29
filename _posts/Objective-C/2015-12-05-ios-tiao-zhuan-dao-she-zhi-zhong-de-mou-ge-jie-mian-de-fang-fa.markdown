@@ -3,7 +3,7 @@ layout: post
 title: "iOS 跳转到设置中的某个界面的方法"
 date: 2015-12-05 21:25:26 +0800
 comments: true
-category:Objective-C
+category: Objective-C
 
 ---
 前言：

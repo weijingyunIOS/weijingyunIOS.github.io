@@ -3,8 +3,9 @@ layout: post
 title: "iOS运行时常用方法"
 date: 2014-11-16 13:51:49 +0800
 comments: true
-category:Objective-C 
+category: Objective-C 
 tags: Runtime
+
 ---
 
 ### 一、Runtime常用使用情景
