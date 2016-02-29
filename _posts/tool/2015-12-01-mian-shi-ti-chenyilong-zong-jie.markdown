@@ -7,7 +7,7 @@ category: Tools
 
 ---
 
-###1、_objc_msgForward函数是做什么的，直接调用它将会发生什么？
+### 1、_objc_msgForward函数是做什么的，直接调用它将会发生什么？
 	_objc_msgForward是 IMP 类型，用于消息转发的：当向一个对象发送一条消息，但它并没有实现的时候，_objc_msgForward会尝试做消息转发。
 	
 	在上篇中的《objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？》曾提到objc_msgSend在“消息传递”中的作用。在“消息传递”过程中，objc_msgSend的动作比较清晰：首先在 Class 中的缓存查找 IMP （没缓存则初始化缓存），如果没找到，则向父类的 Class 查找。如果一直查找到根类仍旧没有实现，则用_objc_msgForward函数指针代替 IMP 。最后，执行这个 IMP 。
@@ -54,7 +54,7 @@ _objc_msgForward 方法解析
 	作者的博文《JSPatch实现原理详解》详细记录了实现原理，有兴趣可以看下。
 	
 	
-###2、runtime如何实现weak变量的自动置nil？
+### 2、runtime如何实现weak变量的自动置nil？
 	runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 在这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。
 	我们可以设计一个函数（伪代码）来表示上述机制：
 	objc_storeWeak(&a, b)函数：
@@ -69,7 +69,7 @@ _objc_msgForward 方法解析
 	原因：第一种情况a适用weak修饰 在b被置为nil的时候会遍历所有指向这块内存地址的指针 将这些指针置为ni 
 		第二种情况a适用assign修饰，在b被置为nil的时候 不会将a指向的对象置为nil，所以默认a仍然指向原来的地址 但是这块地址被释放或者重新利用之后 现存的数据类型和原来的可能不一样了，所以可能出现野指针的问题
 	
-###3、objc_initWeak和objc_destroyWeak解释
+### 3、objc_initWeak和objc_destroyWeak解释
  	通过objc_initWeak函数初始化“附有weak修饰符的变量（obj1）”，在变量作用域结束时通过objc_destoryWeak函数释放该变量（obj1）。
  	
 方法的内部实现
@@ -94,7 +94,7 @@ objc_storeWeak(&obj1, 0);
 ```
 objc_storeWeak函数把第二个参数--赋值对象（obj）的内存地址作为键值，将第一个参数--weak修饰的属性变量（obj1）的内存地址注册到 weak 表中。如果第二个参数（obj）为0（nil），那么把变量（obj1）的地址从weak表中删除
 
-###4、能否向编译后得到的类中增加实例变量？能否向运行时创建的类中添加实例变量？为什么？
+### 4、能否向编译后得到的类中增加实例变量？能否向运行时创建的类中添加实例变量？为什么？
 	不能向编译后得到的类中增加实例变量；
 能向运行时创建的类中添加实例变量；
 解释下：
@@ -103,7 +103,7 @@ objc_storeWeak函数把第二个参数--赋值对象（obj）的内存地址作�
 
 	运行时创建的类是可以添加实例变量，调用 class_addIvar 函数。但是得在调用 objc_allocateClassPair 之后，objc_registerClassPair 之前，原因同上。
 
-###5、runloop和线程有什么关系
+### 5、runloop和线程有什么关系
 1、主线程的run loop默认是启动的。
 	iOS的应用程序里面，程序启动后会有一个如下的main()函数
 
@@ -118,7 +118,7 @@ objc_storeWeak函数把第二个参数--赋值对象（obj）的内存地址作�
 	NSRunLoop *runloop = [NSRunLoop currentRunLoop];
 [《Objective-C之run loop详解》](http://blog.csdn.net/wzzvictory/article/details/9237973)
 
-###6、不手动指定autoreleasepool的前提下，一个autorealese对象在什么时刻释放？（比如在一个vc的viewDidLoad中创建）
+### 6、不手动指定autoreleasepool的前提下，一个autorealese对象在什么时刻释放？（比如在一个vc的viewDidLoad中创建）
 	分两种情况：手动干预释放时机、系统自动去释放。
 
 	手动干预释放时机--指定autoreleasepool 就是所谓的：当前作用域大括号结束时释放。
@@ -142,10 +142,10 @@ objc_storeWeak函数把第二个参数--赋值对象（obj）的内存地址作�
 	
 [《黑幕背后的Autorelease》](http://blog.sunnyxx.com/2014/10/15/behind-autorelease/)
 
-###7、BAD_ACCESS在什么情况下出现？
+### 7、BAD_ACCESS在什么情况下出现？
 	访问了野指针，比如对一个已经释放的对象执行了release、访问已经释放对象的成员变量或者发消息。 死循环
 	
-###8、苹果是如何实现autoreleasepool的？
+### 8、苹果是如何实现autoreleasepool的？
 	autoreleasepool 以一个队列数组的形式实现,主要通过下列三个函数完成.
 
 	objc_autoreleasepoolPush
@@ -155,7 +155,7 @@ objc_storeWeak函数把第二个参数--赋值对象（obj）的内存地址作�
 ![icon](https://camo.githubusercontent.com/1e77679169328e5128722b3268bf9a488fc00ae2/687474703a2f2f6936302e74696e797069632e636f6d2f31356d666a31312e6a7067)
 
 
-###9、 如何用GCD同步若干个异步调用？（如根据若干个url异步加载多张图片，然后在都下载完成后合成一张整图
+### 9、 如何用GCD同步若干个异步调用？（如根据若干个url异步加载多张图片，然后在都下载完成后合成一张整图
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	dispatch_group_t group = dispatch_group_create();
 	dispatch_group_async(group, queue, ^{ /*加载图片1 */ });
@@ -165,7 +165,7 @@ objc_storeWeak函数把第二个参数--赋值对象（obj）的内存地址作�
         	// 合并图片
 	});
 
-###10、apple用什么方式实现对一个对象的KVO？
+### 10、apple用什么方式实现对一个对象的KVO？
 	当你观察一个对象时，一个新的类会被动态创建。这个类继承自该对象的原本的类，并重写了被观察属性的 setter 方法。重写的 setter 方法会负责在调用原 setter 方法之前和之后，通知所有观察对象：值的更改。最后通过 isa 混写（isa-swizzling） 把这个对象的 isa 指针 ( isa 指针告诉 Runtime 系统这个对象的类是什么 ) 指向这个新创建的子类，对象就神奇的变成了新创建的子类的实例
 
 ![icon](https://camo.githubusercontent.com/9517b0d78961b5f32cf3392b99964f2e1f79fb35/687474703a2f2f6936322e74696e797069632e636f6d2f7379353775722e6a7067)

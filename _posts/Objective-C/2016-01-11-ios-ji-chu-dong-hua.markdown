@@ -7,7 +7,7 @@ category: Objective-C
  
 ---
 
-###1、CALayer 图层介绍
+### 1、CALayer 图层介绍
 Layer常用属性：
 下面通过一个简单的Demo来看一下常用的属性:
 
@@ -37,7 +37,7 @@ Layer常用属性：
 
 ```
 
-###2、图层的创建
+### 2、图层的创建
 1、图层的创建
 
 ```
@@ -62,8 +62,8 @@ Layer常用属性：
 
 ```
 
-###3、CAAnimation
-####1、基础动画 CABasicAnimation
+### 3、CAAnimation
+#### 1、基础动画 CABasicAnimation
 	
 主要包括三种：形变 位置变化 旋转 都是通过设置keyPath实现的
 
@@ -88,7 +88,7 @@ Layer常用属性：
     [self.layer addAnimation:anim forKey:nil];
 
 ```
-####2、关键帧动画 CAKeyframeAnimation
+#### 2、关键帧动画 CAKeyframeAnimation
 
 可以为动画设置一个路径，让某一个对象按这个路径去运动，可以设置动画的执行节奏
 
@@ -110,7 +110,7 @@ Layer常用属性：
 
 ```
 
-####3、转场动画 CATransition
+#### 3、转场动画 CATransition
 1、view的转场动画
 
 ```
@@ -171,7 +171,7 @@ Layer常用属性：
 `使用的时候一定要注意，有些事苹果私有的API，小心被拒`
 
 
-####4、动画组 CAAnimationGroup
+#### 4、动画组 CAAnimationGroup
 将几个动画放到一个动画组里，这些动画会依次执行
 
 ```

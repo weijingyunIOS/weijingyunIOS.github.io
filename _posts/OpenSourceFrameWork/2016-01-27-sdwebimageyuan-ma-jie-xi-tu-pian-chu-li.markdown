@@ -3,7 +3,7 @@ layout: post
 title: "SDWebImage源码解析---图片处理"
 date: 2016-01-27 18:47:31 +0800
 comments: true
-category:OpenSourceFrameWork
+category: OpenSourceFrameWork
  
 ---
 ```
@@ -13,7 +13,7 @@ category:OpenSourceFrameWork
 	
 ```
 
-####图片的解码
+#### 图片的解码
 
 ```
 + (UIImage *)decodedImageWithImage:(UIImage *)image {
@@ -89,7 +89,7 @@ category:OpenSourceFrameWork
 ```
 
 
-####由NSData转换为UIImage
+#### 由NSData转换为UIImage
 
 ```
 
@@ -129,7 +129,7 @@ category:OpenSourceFrameWork
 
 ```
 
-####根据图片的NSData判断这个图片的类型
+#### 根据图片的NSData判断这个图片的类型
 
 ```
 + (NSString *)sd_contentTypeForImageData:(NSData *)data {
@@ -170,7 +170,7 @@ category:OpenSourceFrameWork
 
 ```
 
-####NSData转Gif
+#### NSData转Gif
 
 ```
 + (UIImage *)sd_animatedGIFWithData:(NSData *)data {
@@ -223,7 +223,7 @@ category:OpenSourceFrameWork
 
 ```
 
-####讲一个webP转换为UIImage
+#### 讲一个webP转换为UIImage
 
 ```
 + (UIImage *)sd_imageWithWebPData:(NSData *)data {
@@ -287,7 +287,7 @@ category:OpenSourceFrameWork
 
 ```
 
-####其他格式
+#### 其他格式
 
 ```
 其他格式的图片的转换比较简单，直接使用

@@ -3,7 +3,7 @@ layout: post
 title: "SDWebImage源码解析---缓存管理"
 date: 2016-01-27 16:57:41 +0800
 comments: true
-category:OpenSourceFrameWork
+category: OpenSourceFrameWork
  
 ---
 
@@ -12,7 +12,7 @@ category:OpenSourceFrameWork
 
 ```
 
-####磁盘空间的初始化方法
+#### 磁盘空间的初始化方法
 
 ```
 - (id)initWithNamespace:(NSString *)ns {
@@ -151,7 +151,7 @@ initWithNamespace:diskCacheDirectory:
 
 ```
 
-####计算缓存文件的大小
+#### 计算缓存文件的大小
 
 ```
 - (void)calculateSizeWithCompletionBlock:(SDWebImageCalculateSizeBlock)completionBlock {
@@ -190,7 +190,7 @@ initWithNamespace:diskCacheDirectory:
 
 ```
 
-####获取磁盘文件个数
+#### 获取磁盘文件个数
 
 ```
 - (NSUInteger)getDiskCount {
@@ -204,7 +204,7 @@ initWithNamespace:diskCacheDirectory:
 
 ```
 
-####SDWebImage定期清理缓存
+#### SDWebImage定期清理缓存
 
 ```
 - (void)cleanDiskWithCompletionBlock:
@@ -399,7 +399,7 @@ UIApplicationDidReceiveMemoryWarningNotification
 
 ```
 
-####手动清理磁盘图片缓存
+#### 手动清理磁盘图片缓存
 
 直接清除，磁盘缓存目录下的所有文件
 
@@ -428,7 +428,7 @@ UIApplicationDidReceiveMemoryWarningNotification
 
 ```
 
-####通过cacheKey获取某张图片
+#### 通过cacheKey获取某张图片
 
 ```
 - (UIImage *)imageFromDiskCacheForKey:(NSString *)key {
@@ -453,7 +453,7 @@ UIApplicationDidReceiveMemoryWarningNotification
 
 `注意：`这里在磁盘中找到这张图片之后，会将这张图片放到缓存中 用来表示他最近使用了
 
-####通过搜索全路径获取图片数据(NSData)
+#### 通过搜索全路径获取图片数据(NSData)
 
 ```
 - (NSData *)diskImageDataBySearchingAllPathsForKey:(NSString *)key {
@@ -517,7 +517,7 @@ customPaths:是在搜索完缓存以及磁盘都没有找到的时候，查找�
 当用户调用这个方法设置只读的路径时，会向customPaths中添加路径
 
 
-####获取一张磁盘中缓存的图片（UIImage）
+#### 获取一张磁盘中缓存的图片（UIImage）
 
 ```
 - (UIImage *)diskImageForKey:(NSString *)key {

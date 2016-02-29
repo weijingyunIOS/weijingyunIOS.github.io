@@ -3,19 +3,19 @@ layout: post
 title: "SDWebImage源码解析------缓存"
 date: 2016-01-27 14:44:12 +0800
 comments: true
-category:OpenSourceFrameWork
+category: OpenSourceFrameWork
  
 ---
-###SDWebImage缓存机制
+### SDWebImage缓存机制
 
-####简介
+#### 简介
 
 SDWebImage的缓存可以说是这个框架的一个重大的有点，下面我们就来了解一下这个框架的缓存是如何实现的。
 
 从整理来说，SDWebImage的缓存分为两部分SDImageCache使用NSCache实现，另一部分磁盘缓存，使用NSFileManager实现
 
 
-####下载后的图片缓存
+#### 下载后的图片缓存
 
 图片下载成功之后的缓存
 
@@ -23,7 +23,7 @@ SDWebImage的缓存可以说是这个框架的一个重大的有点，下面我�
 - (void)storeImage:(UIImage *)image recalculateFromImage:(BOOL)recalculate imageData:(NSData *)imageData forKey:(NSString *)key toDisk:(BOOL)toDisk
 
 ```
-####1、图片下载成功之后缓存到Cache中
+#### 1、图片下载成功之后缓存到Cache中
 
 ```
 @property (strong, nonatomic) NSCache *memCache;
@@ -37,7 +37,7 @@ SDWebImage的缓存可以说是这个框架的一个重大的有点，下面我�
 ```
 self.memCache实际上就是一个NSCache,类似于字典的一种存储方式，需要传入图片的消耗
 
-####2、图片下载成功之后缓存到磁盘
+#### 2、图片下载成功之后缓存到磁盘
 
 `注意：`这里在图片保存之前有一个图片格式转换的过程（*->PNG）
 
@@ -132,16 +132,16 @@ if (![_fileManager fileExistsAtPath:_diskCachePath]) {
 ```
 
 
-###缓存图片的查找：
+### 缓存图片的查找：
 
-####根据cachekey 判断这个图片是否缓存过
+#### 根据cachekey 判断这个图片是否缓存过
 ```
 - (NSOperation *)queryDiskCacheForKey:(
 NSString *)key done:(SDWebImageQueryCompletedBlock)doneBlock
 
 ```
 
-####从缓存中查找
+#### 从缓存中查找
 
 ```
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key
@@ -156,7 +156,7 @@ if (image) {
 
 ```
 
-####从磁盘中查找
+#### 从磁盘中查找
 
 ```
    NSOperation *operation = [NSOperation new];

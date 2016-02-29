@@ -9,7 +9,7 @@ category: Objective-C
 前言：
 	在APP开发中 我们会经常遇到，要跳转到设置的某个界面提示用户去设置（开启定位或者其他功能），下面详细的介绍了，跳转到每一个界面的方法
 	
-####1、方法
+#### 1、方法
 例子：跳转到定位服务
 
 ```
@@ -22,7 +22,7 @@ if ([[UIApplication sharedApplication] canOpenURL:url])
 ```
 其他界面也是一个类型，不过URL改变一下就可以
 
-####2、跳转类型
+#### 2、跳转类型
 
 ```
 About — prefs:root=General&path=About	//关于本机

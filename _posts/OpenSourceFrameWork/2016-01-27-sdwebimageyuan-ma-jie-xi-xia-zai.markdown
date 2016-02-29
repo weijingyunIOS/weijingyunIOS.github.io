@@ -3,14 +3,14 @@ layout: post
 title: SDWebImage源码解析-----下载
 date: 2016-01-27 14:40:28 +0800
 comments: true
-category:OpenSourceFrameWork
+category: OpenSourceFrameWork
  
 ---
 
-##图片下载
+## 图片下载
 
-###外层方法调用
-####最外层方法的调用
+### 外层方法调用
+#### 最外层方法的调用
 首先，看一下使用SD进行图片下载时，调用的代码：
 
 ```
@@ -27,7 +27,7 @@ URL:要下载图片的URL
 placeholderImage：要显示的占位图
 options:下载时候的一些条件设置
 
-####非必要参数的包装
+#### 非必要参数的包装
 
 方法：
 
@@ -42,9 +42,9 @@ completed:下载完成的进度的回调
 下面从这个方法开始，对于图片的下载过程做一个详细的分析
 
 
-###开始下载操作（包括缓存的查找）
+### 开始下载操作（包括缓存的查找）
 
-####取消现有的图片的下载：
+#### 取消现有的图片的下载：
 
 ```
  [self sd_cancelCurrentImageLoad];
@@ -132,7 +132,7 @@ completed:下载完成的进度的回调
 ```
 
 
-####占位图片的设置
+#### 占位图片的设置
 
 ```
     if (!(options & SDWebImageDelayPlaceholder)) {
@@ -167,7 +167,7 @@ if ((options & SDWebImageDelayPlaceholder)) {
 
 占位图片设置完成后，就开始了图片的加载，也就是本片文章的重头戏，图片缓存中查找或者图片的下载
 
-####创建一个新的下载操作
+#### 创建一个新的下载操作
 
 ```
  id <SDWebImageOperation> operation = 			
@@ -258,7 +258,7 @@ SDImageCacheType类型：
 
 ```
 
-####必要的参数completedBlock
+#### 必要的参数completedBlock
 
 ```
     // Invoking this method without a completedBlock is 
@@ -274,7 +274,7 @@ SDImageCacheType类型：
 [断言学习入门](http://www.cnblogs.com/moondark/archive/2012/03/12/2392315.html)
 
 
-####对URL做特殊处理
+#### 对URL做特殊处理
 
 由于在某些时候，出于某些特殊的原因，Xcode不会对这里的类型匹配做出警告的提示，所以作者在这里增加了一个容错处理，允许这里传递一个字符串类型的URL
 
@@ -290,7 +290,7 @@ SDImageCacheType类型：
 
 ```
 
-####再次新建一个操作
+#### 再次新建一个操作
  新建了一个SDWebImageCombinedOperation对象
 
 ```
@@ -321,7 +321,7 @@ __weak SDWebImageCombinedOperation *weakOperation = operation;
 `注意`：downloadImageWithURL返回的这个id类型（遵守SDWebImageOperation协议）的对象
 
 
-####黑名单处理
+#### 黑名单处理
 
 判断当前要下载的图片的URL是否存在于黑名单中
 
@@ -333,7 +333,7 @@ __weak SDWebImageCombinedOperation *weakOperation = operation;
 
 ```
 
-####URL是否合法
+#### URL是否合法
 
 ```
     if (url.absoluteString.length == 0 
@@ -355,7 +355,7 @@ __weak SDWebImageCombinedOperation *weakOperation = operation;
 [如何自定义错误](http://blog.sina.com.cn/s/blog_71715bf801019ymq.html)
 
 
-####将操作添加到正在进行的队列中
+#### 将操作添加到正在进行的队列中
 
 ```
     @synchronized (self.runningOperations) {
@@ -373,7 +373,7 @@ __weak SDWebImageCombinedOperation *weakOperation = operation;
 
 ```
 
-####获取cachekey
+#### 获取cachekey
 
 NSString *key = [self cacheKeyForURL:url];
 
@@ -406,7 +406,7 @@ NSString *key = [self cacheKeyForURL:url];
 ```
 cache filter 是一个SDWebImageManager每次需要讲一个URL转换为cachekey时会调用的一个方法，用来去掉图片URL中的动态部分
 
-####图片缓存
+#### 图片缓存
 
 查找这张图片有没有被缓存过，具体的缓存查找策略会在后面单独写一篇文章
 
@@ -415,13 +415,13 @@ cache filter 是一个SDWebImageManager每次需要讲一个URL转换为cachekey
 
 ```
 
-####图片下载
+#### 图片下载
 
 `下面就开始了正式的“下载” 根据第一部分的介绍，我们知道，在每次下载之前，我们都会先去缓存中查找一下，看是否存在，所以这里可以先跳到缓存看一下`
 
 如果，这张图片没有被缓存过，那么就要开始下载这张图片
 
-####图片要从网络获取的条件
+#### 图片要从网络获取的条件
 
 ```
 if (operation.isCancelled) {
@@ -435,7 +435,7 @@ if (operation.isCancelled) {
 ```
 这里的operation是一个SDWebImageCombinedOperation，具体内容跟上面的那个差不多，就不赘述了
 
-####图片下载的条件
+#### 图片下载的条件
 
 ```
 if ((!image || options & SDWebImageRefreshCached) 
@@ -454,7 +454,7 @@ options & SDWebImageRefreshCached:图片找到了是否需要跟新缓存（重�
 如果实现了 就执行这个方法
 [self.delegate imageManager:self shouldDownloadImageForURL:url]
 
-#####小插曲
+##### 小插曲
 imageManager:shouldDownloadImageForURL:是干啥的？
 
 ```
@@ -478,7 +478,7 @@ imageManager:shouldDownloadImageForURL:是干啥的？
 
 判断好条件，接下来我们继续看
 
-####是否需要更新缓存
+#### 是否需要更新缓存
 
 ```
 if (image && options & SDWebImageRefreshCached) {
@@ -492,7 +492,7 @@ if (image && options & SDWebImageRefreshCached) {
 ```
 如果缓存中有这张图片，但是用户设置了需要更新缓存，那么因为已经有这种图片了，所以直接调用completedBlock去显示图片，同时也会继续往后走去下载图片来更新缓存
 
-####图片下载的参数设置
+#### 图片下载的参数设置
 
 ```
 if (options & SDWebImageProgressiveDownload) 
@@ -527,7 +527,7 @@ if (image && options & SDWebImageRefreshCached) {
 
 ```
 
-####开始下载
+#### 开始下载
 
 ```
 id <SDWebImageOperation> subOperation = [self.imageDownloader downloadImageWithURL:url options:downloaderOptions progress:progressBlock completed:^(UIImage *downloadedImage, NSData *data, NSError *error, BOOL finished)
@@ -546,7 +546,7 @@ id <SDWebImageOperation> subOperation = [self.imageDownloader downloadImageWithU
 这里创建的operation是我们图片下载的主力SDWebImageDownloaderOperation
 
 
-####添加进度监听
+#### 添加进度监听
 
 ```
   - (void)addProgressCallback:(SDWebImageDownloaderProgressBlock)progressBlock completedBlock:(SDWebImageDownloaderCompletedBlock)completedBlock forURL:(NSURL *)url createCallback:(SDWebImageNoParamsBlock)createCallback {
@@ -597,7 +597,7 @@ id <SDWebImageOperation> subOperation = [self.imageDownloader downloadImageWithU
 解答：暂时还不太清楚 先往后面看看
 
 
-####createCallback回调内容
+#### createCallback回调内容
 
 ```
 NSTimeInterval timeoutInterval = wself.downloadTimeout;
@@ -608,7 +608,7 @@ if (timeoutInterval == 0.0) {
 ```
 如果用户没有主动设置下载超时timeoutInterval，则默认为15
 
-#####创建图片下载的请求
+##### 创建图片下载的请求
 
 ```
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] 
@@ -646,7 +646,7 @@ options & SDWebImageDownloaderUseNSURLCache ?
 
 
 
-#####请求的其他参数设置
+##### 请求的其他参数设置
 
 ```
  request.HTTPShouldHandleCookies = (options &
@@ -670,7 +670,7 @@ options & SDWebImageDownloaderUseNSURLCache ?
 request.HTTPShouldUsePipelining = YES;
 ```
 
-#####Header的设置
+##### Header的设置
 
 ```
 if (wself.headersFilter) {
@@ -701,7 +701,7 @@ if (wself.headersFilter) {
 
 ```
 
-#####图片下载完成后是否需要解码
+##### 图片下载完成后是否需要解码
 
 ```
 shouldDecompressImages:图片下载完成是否需要解码
@@ -710,7 +710,7 @@ shouldDecompressImages:图片下载完成是否需要解码
 `注意`：解压缩已经下载的图片或者在缓存中的图片，可以提高性能，但是会耗费很多空间，缺省情况下是要解压缩图片。
 
 
-#####身份验证
+##### 身份验证
 
 ```
 
@@ -736,7 +736,7 @@ NSURLCredentialPersistenceForSession表示在应用终止时，丢弃相应的 c
 [urlCredential详情参考这里](http://blog.csdn.net/majiakun1/article/details/17013379)
 
 
-#####下载的优先级
+##### 下载的优先级
 
 ```
 if (options & SDWebImageDownloaderHighPriority) {
@@ -748,7 +748,7 @@ if (options & SDWebImageDownloaderHighPriority) {
 ```
 这个就不做过多的解释了，一看就能明白
 
-#####添加到下载队列
+##### 添加到下载队列
 
 ```
   [wself.downloadQueue addOperation:operation];
@@ -756,7 +756,7 @@ if (options & SDWebImageDownloaderHighPriority) {
 ```
 这里的downloadQueue是一个NSOperationQueue
 
-#####设置操作队列的执行顺序
+##### 设置操作队列的执行顺序
 
 ```
 if (wself.executionOrder == 
@@ -773,7 +773,7 @@ if (wself.executionOrder ==
 
 说到这里，下面就剩下正式的发送请求
 
-####下载请求
+#### 下载请求
 
 ```
 这里的参数应该是都比较清楚了，不在赘述
@@ -787,7 +787,7 @@ if (wself.executionOrder ==
 这个方法的返回值也是也operation用户可以定义，默认是SDWebImageDownloaderOperation
 
 
-####图片下载progressBlock
+#### 图片下载progressBlock
 
 ```
 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -844,7 +844,7 @@ if (!sself) return;                                             dispatch_barrier
 
 到目前为止，除了具体的下载细节，图片下载就基本完成了！！！开始执行下载完成的回调
 
-#####图片下载完成（包含成功或者失败）：
+##### 图片下载完成（包含成功或者失败）：
 
 这里要注意下，突然发现当前存在着好几个operation，先通过下面这张图片，理一下层次结构
 
@@ -872,7 +872,7 @@ if (!sself) return;                                             dispatch_barrier
 
 这里的解释是：如果操作被取消了，就不执行任何操作。如果我们调用了completedBlock，那么在同一个对象的另一个completedBlock之间就存在一个竞争关系，因此，如果这个方法被重复调用两次，我们会重写新的数据
 
-####图片下载失败处理
+#### 图片下载失败处理
 
 确定下载失败的原因，触发下载完成的回调（返回必要信息），同时加入黑名单
 
@@ -900,7 +900,7 @@ dispatch_main_sync_safe(^{
 
 `注意：这里不管用户是否设置，都会将这个下载失败的URL加入到黑名单中`
 
-####图片下载成功
+#### 图片下载成功
 判断是否为下载失败后的重试,如果是重试，那么就将这个图片从黑名单中移除
 
 ```
@@ -981,7 +981,7 @@ dispatch_main_sync_safe(^{
 `如果不需要再图片下载完成之后，对图片进行其他的处理,那么就做一下图片的缓存同时调用图片下载完成的回调即可`
 
 
-#####图片下载完成最后移除
+##### 图片下载完成最后移除
 
 ```
 if (finished) {
@@ -995,7 +995,7 @@ if (finished) {
 ```
 
 
-####操作的取消
+#### 操作的取消
 
 ```
 operation.cancelBlock = ^{
@@ -1053,7 +1053,7 @@ cancelInternalAndStop和cancelInternal
 用来停止当前线程的运行循环。
 
 
-####没找到图片：
+#### 没找到图片：
 
 ```
 dispatch_main_sync_safe(^{
@@ -1069,7 +1069,7 @@ dispatch_main_sync_safe(^{
 
 ```
 
-####图片在查找到或者下载完成之后图片的显示
+#### 图片在查找到或者下载完成之后图片的显示
 
 SDWebImageAvoidAutoSetImage 图片下载完成之后是否立即设置给ImageView
 在这里如果想要对图片的显示添加一些动画，我们可以从这里着手

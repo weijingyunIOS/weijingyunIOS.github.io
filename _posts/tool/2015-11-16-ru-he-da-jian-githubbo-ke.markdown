@@ -6,19 +6,19 @@ comments: true
 category: Tools
 
 ---
-###GitHub搭建博客：
-#####1 绑定用户
+### GitHub搭建博客：
+##### 1 绑定用户
 	 git config --global user.name "LeeWongSnail"
 	 git config --global user.email 
-#####2、SSHKey
+##### 2、SSHKey
 	ssh-keygen -t rsa -C "wangli_0632@163.com"
 	一路回车就可以了 然后找到目录下的id_rsa.pub 文件 打开，将里面的公钥写到github的SSHKey中（setting -SSH）
 	ssh -T git@github.com
 	这个命令可以加密解密的验证成功与否
-#####3、ruby 的安装
+##### 3、ruby 的安装
 	1、验证安装 bogon:.ssh leewong$ ruby --version 正确显示版本是正确的
 	2、安装ruby，文章最后会提供一片博客
-#####4、安装octopress
+##### 4、安装octopress
 	1、克隆至本地
 	git clone git://github.com/imathis/octopress.git octopress
 	2、进入octopress进行下一步操作
@@ -46,13 +46,13 @@ category: Tools
 	将jquery源修改为百度的
 	<script src="//libs.baidu.com/jquery/1.9.1/	jquery.min.js"></script>
 	9、修改了网页的源文件需要重新生成一次 使用rake generate
-####5、生成博客和单页面
+#### 5、生成博客和单页面
 	1、新建博客
 		rake new_post['title'] 不能输入中文
 	2、修改博客内容 会自动根据时间分 文件夹
 		新建的博客的路径是
 		/Users/leewong/Desktop/octopress/source/_posts/2015-11-14-firststep.markdown
-####6、部署博客到gitHub
+#### 6、部署博客到gitHub
 	1、新建一个名称为username.github.io的仓库
 	2、rake setup_github_pages
 		Enter the read/write url for your repository
@@ -65,12 +65,12 @@ category: Tools
 	注意：
 		如果在http://leewongsnail.github.io/
 		网页上打不开 必须验证邮箱
-####7、将源码托管到github
+#### 7、将源码托管到github
 	1、git add .  将所有文件添加到github上
 	2、git commit -m "提交信息"
 	3、git push origin source
 	4、这时候就可以在github上看到source这个分支了
-####8、界面的配置
+#### 8、界面的配置
 	1、打开_config.yml文件 可以修改标题（title）副标题（subtitle）作者(author) 搜索路径(可修改为百度),下面还可以设置底部推特等按钮的显示
 	twitter_tweet_button: true
 	2、增加评论的功能 使用多说，首先在_config.yml中添加一项
@@ -83,7 +83,7 @@ category: Tools
 		*rake generate
 		*rake deploy
 
-####9、结束语
+#### 9、结束语
 	这样github博客 就搭建完成了，这篇文章只是我在搭建过程中的笔记，希望能够帮助到你！
 
 

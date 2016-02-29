@@ -7,7 +7,7 @@ date: 2016-02-15 13:10:05 +0800
 
 comments: true
 
-category:Swift
+category: Swift
  
 ---
 
@@ -16,7 +16,7 @@ category:Swift
 	
 ```
 
-####1、方法的重载
+#### 1、方法的重载
 
 大家都知道OC是不支持方法的重载（存在两个名称相同的方法）的，而swift支持方法的重载，所以在项目中，我们可能会遇到下面这个问题
 
@@ -102,7 +102,7 @@ class BugViewController: UIViewController
 详细请参考[链接](http://stackoverflow.com/questions/29457720/compiler-error-method-with-objective-c-selector-conflicts-with-previous-declara/31500740#31500740)
 
 
-####2、类方法
+#### 2、类方法
 
 实例方法是被类型的某个实例调用的方法。你也可以定义类型本身调用的方法，这种方法就叫做类型方法。声明类的类型方法，在方法的func关键字之前加上关键字class；声明结构体和枚举的类型方法，在方法的func关键字之前加上关键字static
 
@@ -128,7 +128,7 @@ SomeClass.someTypeMethod()
 
 [1、static和class的使用](http://www.topthink.com/topic/8972.html)
 
-####3、Class has no initializers错误
+#### 3、Class has no initializers错误
 
 ![errorTips](http://img.hoop8.com/attachments/1602/9323165027545.png)
 
@@ -137,7 +137,7 @@ SomeClass.someTypeMethod()
 在声明的时候没有指定这个变量是否是optional，
 这时你只需要检查一下，自己声明的变量是否需要添加！或者？
 
-####4、获取类名或者实例的类型
+#### 4、获取类名或者实例的类型
 
 使用类名获取
 

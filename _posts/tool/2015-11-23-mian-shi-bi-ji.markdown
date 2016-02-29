@@ -6,8 +6,8 @@ comments: true
 category: Tools
 
 ---
-##面试题知识点总结
-###1、枚举的定义
+## 面试题知识点总结
+### 1、枚举的定义
 	NS_ENUM和NS_OPTIONS本质是一样的，仅仅从字面上来区分其用途。NS_ENUM是通用情况，NS_OPTIONS一般用来定义具有位移操作或特点的情况（bitmask)。
 	typedef NS_ENUM(NSInteger, UIViewAnimationTransition) {  
     UIViewAnimationTransitionNone,//默认从0开始  
@@ -26,14 +26,14 @@ category: Tools
     	UIViewAutoresizingFlexibleHeight       = 1 << 4,  
     	UIViewAutoresizingFlexibleBottomMargin = 1 << 5  
 	};
-###2、方法名中间的连词
+### 2、方法名中间的连词
 	//错误，不要使用"and"来连接参数
 	- (int)runModalForDirectory:(NSString *)path andFile:	(NSString *)name andTypes:(NSArray *)fileTypes;
 	//错误，不要使用"and"来阐明有多个参数
 	- (instancetype)initWithName:(CGFloat)width andAge:	(CGFloat)height;
 	//正确，使用"and"来表示两个相对独立的操作
 	- (BOOL)openFile:(NSString *)fullPath withApplication:	(NSString *)appName andDeactivate:(BOOL)flag;
-###3、编程规范的问题
+### 3、编程规范的问题
 	在-和(void)之间应该有一个空格
 	enum 中驼峰命名法和下划线命名法混用错误：枚举类型的命名规则和函数的	命名规则相同：命名时使用驼峰命名法，勿使用下划线命名法。
 	enum 左括号前加一个空格，或者将左括号换到下一行
@@ -44,7 +44,7 @@ category: Tools
 	-(id)initUserModelWithUserName: (NSString*)name withAge:	(int)age;方法中方法名与参数之间多了空格。而且 - 与 (id) 之间少了	空格。
 	-(id)initUserModelWithUserName: (NSString*)name withAge:	(int)age;方法中方法名与参数之间多了空格：(NSString*)name 前多了	空格。
 	-(id)initUserModelWithUserName: (NSString*)name withAge:	(int)age; 方法中 (NSString*)name,应为 (NSString *)name，少	了空格。
-###4、什么情况使用 weak 关键字，相比 assign 有什么不同？
+### 4、什么情况使用 weak 关键字，相比 assign 有什么不同？
 
 	什么情况使用 weak 关键字？
 
@@ -55,7 +55,7 @@ category: Tools
 	不同点：
 	weak 此特质表明该属性定义了一种非拥有关系 (nonowning 	relationship)。为这种属性设置新值时，设置方法既不保留新值，也不释	放旧值。此特质同assign类似， 然而在属性所指的对象遭到摧毁时，属性值	也会清空(nil out)。 而 assign 的“设置方法”只会执行针对纯量类	型” (scalar type，例如 CGFloat 或 NSlnteger 等)的简赋值操	。
 	assigin 可以用非 OC 对象,而 weak 必须用于 OC 对象
-###5、怎么用 copy 关键字？
+### 5、怎么用 copy 关键字？
 	1、block使用copy
 		block 使用 copy 是从 MRC 遗留下来的“传统”,在 MRC 中,方法内部的 block 是在栈区的,使用 copy 可以把它放到堆区.在 ARC 中写不写都行对于 block 使用 copy 还是 strong 效果是一样的
 	使用copy的意义：
@@ -66,7 +66,7 @@ category: Tools
 	下面做下解释： copy 此特质所表达的所属关系与 strong 类似。然而设置方法并不保留新值，而是将其“拷贝” (copy)。 当属性类型为 NSString 时，经常用此特质来保护其封装性，因为传递给设置方法的新值有可能指向一个 NSMutableString 类的实例。这个类是 NSString 的子类，表示一种可修改其值的字符串，此时若是不拷贝字符串，那么设置完属性之后，字符串的值就可能会在对象不知情的情况下遭人更改。所以，这时就要拷贝一份“不可变” (immutable)的字符串，确保对象中的字符串值不会无意间变动。只要实现属性所用的对象是“可变的” (mutable)，就应该在设置新属性值时拷贝一份。
 	用 @property 声明 NSString、NSArray、NSDictionary 经常使用 copy 关键字，是因为他们有对应的可变类型：NSMutableString、NSMutableArray、NSMutableDictionary，他们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性值时拷贝一份。
 ```
-###6、这个写法会出什么问题： @property (copy) NSMutableArray *array;
+### 6、这个写法会出什么问题： @property (copy) NSMutableArray *array;
 	两个问题：1、添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象；2、使用了 atomic 属性会严重影响性能 ；
 	1、NSMutableArray *array = [NSMutableArray 								arrayWithObjects:@1,@2,nil];
 		self.mutableArray = array;
@@ -74,7 +74,7 @@ category: Tools
 		执行会崩溃
 	2、该属性使用了同步锁，会在创建时生成一些额外的代码用于帮助编写多线程程序，这会带来性能问题，通过声明 nonatomic 可以节省这些虽然很小但是不必要额外开销
 	
-###7、@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的
+### 7、@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的
 	@property 的本质是什么？
 	@property = ivar + getter + setter;
 	下面解释下：
@@ -96,7 +96,7 @@ category: Tools
 	prop_list ：属性列表
 	也就是说我们每次在增加一个属性,系统都会在 ivar_list 中添加一个成员变量的描述,在 method_list 中增加 setter 与 getter 方法的描述,在属性列表中增加一个属性的描述,然后计算该属性在对象中的偏移量,然后给出 setter 与 getter 方法对应的实现,在 setter 方法中从偏移量的位置开始赋值,在 getter 方法中从偏移量开始取值,为了能够读取正确字节数,系统对象偏移量的指针类型进行了类型强转.
 
-###8 @protocol 和 category 中如何使用 @property
+### 8 @protocol 和 category 中如何使用 @property
 	1、在 protocol 中使用 property 只会生成 setter 和 getter 方法声明,我们使用属性的目的,是希望遵守我协议的对象能实现该属性
 	2、category 使用 @property 也是只会生成 setter 和 getter 方法的声明,如果我们真的需要给 category 增加属性的实现,需要借助于运行时的两个函数：
 
@@ -104,7 +104,7 @@ category: Tools
 	objc_getAssociatedObject
 	
 	
-###10  @property中有哪些属性关键字？ @property 后面可以有哪些修饰符？
+### 10  @property中有哪些属性关键字？ @property 后面可以有哪些修饰符？
 	1、原子性--- nonatomic 特质
 	2、读/写权限---readwrite(读写)、readonly (只读)
 	3、内存管理语义---assign、strong、 weak、unsafe_unretained、copy
@@ -119,17 +119,17 @@ category: Tools
       	避免方法：
       	@property(nonatomic, strong, getter=p_initBy, setter=setP_initBy:)NSString *initBy;
  
-###11、weak属性需要在dealloc中置nil么？
+### 11、weak属性需要在dealloc中置nil么？
 	不需要
 	在ARC环境无论是强指针还是弱指针都无需在 dealloc 设置为 nil ， ARC 会自动帮我们处理
 	在属性所指的对象遭到摧毁时，属性值也会清空(nil out)。
 	
-###12、 @synthesize和@dynamic分别有什么作用？
+### 12、 @synthesize和@dynamic分别有什么作用？
 	@property有两个对应的词，一个是 @synthesize，一个是 @dynamic。如果 @synthesize和 @dynamic都没写，那么默认的就是@syntheszie var = _var;
 	@synthesize 的语义是如果你没有手动实现 setter 方法和 getter 方法，那么编译器会自动为你加上这两个方法。
 	@dynamic 告诉编译器：属性的 setter 与 getter 方法由用户自己实现，不自动生成。（当然对于 readonly 的属性只需提供 getter 即可）。假如一个属性被声明为 @dynamic var，然后你没有提供 @setter方法和 @getter 方法，编译的时候没问题，但是当程序运行到 instance.var = someVar，由于缺 setter 方法会导致程序崩溃；或者当运行到 someVar = var 时，由于缺 getter 方法同样会导致崩溃。编译时没问题，运行时才执行相应的方法，这就是所谓的动态绑定。
 
-###13、ARC下，不显式指定任何属性关键字时，默认的关键字都有哪些
+### 13、ARC下，不显式指定任何属性关键字时，默认的关键字都有哪些
 	1、对应基本数据类型默认关键字是
 
 	atomic,readwrite,assign
@@ -138,7 +138,7 @@ category: Tools
 
 	atomic,readwrite,strong
 
-###14、用@property声明的NSString（或NSArray，NSDictionary）经常使用copy关键字，为什么？如果改用strong关键字，可能造成什么问题
+### 14、用@property声明的NSString（或NSArray，NSDictionary）经常使用copy关键字，为什么？如果改用strong关键字，可能造成什么问题
 	1、因为父类指针可以指向子类对象,使用 copy 的目的是为了让本对象的属性不受外界影响,使用 copy 无论给我传入是一个可变对象还是不可对象,我本身持有的就是一个不可变的副本.
 	2、如果我们使用是 strong ,那么这个属性就有可能指向一个可变对象,如果这个可变对象在外部被修改了,那么会影响该属性.
 	对非集合类对象的copy操作：
@@ -153,7 +153,7 @@ category: Tools
 	[mutableObject mutableCopy] //单层深复制
 	在集合类对象中，对 immutable 对象进行 copy，是指针复制， mutableCopy 是内容复制；对 mutable 对象进行 copy 和 mutableCopy 都是内容复制。但是：集合对象的内容复制仅限于对象本身，对象元素仍然是指针复制
 	
-###15、@synthesize合成实例变量的规则是什么？假如property名为foo，存在一个名为_foo的实例变量，那么还会自动合成新变量么？
+### 15、@synthesize合成实例变量的规则是什么？假如property名为foo，存在一个名为_foo的实例变量，那么还会自动合成新变量么？
 .h
 
 	@interface CYLPerson : NSObject 
@@ -181,7 +181,7 @@ category: Tools
 	不会，
 ![icon](https://camo.githubusercontent.com/8e11101c9fe0b3defc7fbd144c0dca9fdf0471d0/687474703a2f2f692e696d6775722e636f6d2f743238676534572e706e67)
 
-###16、在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景？
+### 16、在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景？
 
 	不会autosynthesis的场景：
 		同时重写了 setter 和 getter 时
@@ -197,7 +197,7 @@ category: Tools
 	当你同时重写了 setter 和 getter 时，系统就不会生成 ivar（实例变量/成员变量）。这时候有两种选择
 	要么如第14行：手动创建 ivar
 	要么如第17行：使用@synthesize foo = _foo; ，关联 @property 与 ivar。
-###17、objc中向一个nil对象发送消息将会发生什么
+### 17、objc中向一个nil对象发送消息将会发生什么
 	在 Objective-C 中向 nil 发送消息是完全有效的——只是在运行时不会有任何作用:
 	1、如果一个方法返回值是一个对象，那么发送给nil的消息将返回0(nil)
 	2、如果方法返回值为指针类型，其指针大小为小于或者等于sizeof(void*)，float，double，long double 或者 long long 的整型标量，发送给 nil 的消息将返回0
@@ -208,7 +208,7 @@ category: Tools
 	
 	objc在向一个对象发送消息时，runtime库会根据对象的isa指针找到该对象实际所属的类，然后在该类中的方法列表以及其父类方法列表中寻找方法运行，然后在发送消息的时候，objc_msgSend方法不会返回值，所谓的返回内容都是具体调用时执行的。 那么，回到本题，如果向一个nil对象发送消息，首先在寻找对象的isa指针时就是0地址返回了，所以不会出现任何错误。
 
-###18、objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？
+### 18、objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？
 	该方法编译之后就是objc_msgSend()函数调用
 	[obj foo];在objc动态编译时，会被转意为：objc_msgSend(obj, 	@selector(foo));。
 		int main(int argc, char * argv[]) {
@@ -221,7 +221,7 @@ category: Tools
 	具体实现：
 ![icon](https://camo.githubusercontent.com/bf346edc21ab4b3387906602249b357d250ab1c2/687474703a2f2f692e696d6775722e636f6d2f6541483559576e2e706e67)
 
-###12、 什么时候会报unrecognized selector的异常？
+### 12、 什么时候会报unrecognized selector的异常？
 	当调用该对象上某个方法,而该对象上没有实现这个方法的时候， 可以通过“消息转发”进行解决。
 	objc是动态语言，每个方法在运行时会被动态转为消息发送，即：objc_msgSend(receiver, selector)。
 	objc在向一个对象发送消息时，runtime库会根据对象的isa指针找到该对象实际所属的类，然后在该类中的方法列表以及其父类方法列表中寻找方法运行，如果，在最顶层的父类中依然找不到相应的方法时，程序在运行时会挂掉并抛出异常unrecognized selector sent to XXX 。但是在这之前，objc的运行时会给出三次拯救程序崩溃的机会：
@@ -237,7 +237,7 @@ category: Tools
 
 	这一步是Runtime最后一次给你挽救的机会。首先它会发送-methodSignatureForSelector:消息获得函数的参数和返回值类型。如果-methodSignatureForSelector:返回nil，Runtime则会发出-doesNotRecognizeSelector:消息，程序这时也就挂掉了。如果返回了一个函数签名，Runtime就会创建一个NSInvocation对象并发送-forwardInvocation:消息给目标对象。
 
-###13、一个objc对象如何进行内存布局？（考虑有父类的情况）
+### 13、一个objc对象如何进行内存布局？（考虑有父类的情况）
 	所有父类的成员变量和自己的成员变量都会存放在该对象所对应的存储空间中.
 	每一个对象内部都有一个isa指针,指向他的类对象,类对象中存放着本对象的
 		对象方法列表（对象能够接收的消息列表，保存在它所对应的类对象中）
@@ -246,9 +246,9 @@ category: Tools
 	它内部也有一个isa指针指向元对象(meta class),元对象内部存放的是类方法列表,类对象内部还有一个superclass的指针,指向他的父类对象
 ![icon](https://camo.githubusercontent.com/cdc02fffae7a70aa00cbb6c0f3675d00728cdaad/687474703a2f2f692e696d6775722e636f6d2f7736747a46787a2e706e67)
 
-###14、一个objc对象的isa的指针指向什么？有什么作用？
+### 14、一个objc对象的isa的指针指向什么？有什么作用？
 	指向他的类对象,从而可以找到对象上的方法
-###15、下面的代码输出什么？
+### 15、下面的代码输出什么？
 ```
 @implementation Son : Father
     - (id)init
@@ -275,9 +275,9 @@ category: Tools
 
 	这也就是为什么说“不推荐在 init 方法中使用点语法”，如果想访问实例变量 iVar 应该使用下划线（ _iVar ），而非点语法（ self.iVar ）
 
-###16、runtime如何通过selector找到对应的IMP地址？（分别考虑类方法和实例方法
+### 16、runtime如何通过selector找到对应的IMP地址？（分别考虑类方法和实例方法
 	每一个类对象中都一个方法列表,方法列表中记录着方法的名称,方法实现,以及参数类型,其实selector本质就是方法名称,通过这个方法名称就可以在方法列表中找到对应的方法实现.
-###17、. 使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么
+### 17、. 使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么
 	无论在MRC下还是ARC下均不需要。
 ```
 // 对象的内存销毁时间表
@@ -303,7 +303,7 @@ category: Tools
      * 调用 free()
 ```
 	
-###18、 objc中的类方法和实例方法有什么本质区别和联系？
+### 18、 objc中的类方法和实例方法有什么本质区别和联系？
 
 	类方法：
 
@@ -321,6 +321,6 @@ category: Tools
 	实例方法中可以访问成员变量
 	实例方法中直接调用实例方法
 	实例方法中也可以调用类方法(通过类名)
-###9  runtime 如何实现 weak 属性
+### 9  runtime 如何实现 weak 属性
 	weak属性的特点：
 	weak 此特质表明该属性定义了一种“非拥有关系” (nonowning relationship)。为这种属性设置新值时，设置方法既不保留新值，也不释放旧值。此特质同 assign 类似， 然而在属性所指的对象遭到摧毁时，属性值也会清空(nil out)。

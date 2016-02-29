@@ -3,7 +3,7 @@ layout: post
 title: "Swift Learning On The Way"
 date: 2016-02-19 14:54:19 +0800
 comments: true
-category:Swift
+category: Swift
  
 ---
 
@@ -15,7 +15,7 @@ category:Swift
 
 [Demo的代码放在这里](https://github.com/LeeWongSnail/Swift-On-The-Way)
 
-####Project01 - SimpleStopWatch
+#### Project01 - SimpleStopWatch
 
 一个可以暂停和开始和重置的计时器
 
@@ -24,7 +24,7 @@ category:Swift
 
 重点练习了Autolayout布局，以及一个小的tips，在一个文件内使用performSelector调用一个私有方法的时候回报野指针的错误，可以通过在前面加`@objc`的方式解决这个问题
 
-####Project02 - CustomFont
+#### Project02 - CustomFont
 
 自定义字体
 
@@ -45,7 +45,7 @@ tips：获取当前显示字体的名称
 
 ```
 
-####Project03 - Play Local Video
+#### Project03 - Play Local Video
 
 播放本地文件
 
@@ -61,7 +61,7 @@ import AVFoundation
 
 
 
-####Project04 - SnapChatMenu
+#### Project04 - SnapChatMenu
 联系scrollView的布局
 可以参考[里脊的笔记](http://adad184.com/2015/12/01/scrollview-under-autolayout/)
 
@@ -97,7 +97,7 @@ UIApplication.sharedApplication().statusBarHidden = true
 
 ```
 
-####Project05 - Carousel Effect
+#### Project05 - Carousel Effect
 CollectionView简单使用
 
 ![icon](http://img.hoop8.com/attachments/1602/3643165027545.gif)
@@ -109,7 +109,7 @@ CollectionView简单使用
 还有一个问题是在swift中如何区分类方法和对象方法以及使用static修饰的方法有什么特性，具体可以在我的[这篇博客](http://leewongsnail.github.io/blog/2016/02/15/swift-little-tips/)看到
 
 
-####Project06 - Get My Location
+#### Project06 - Get My Location
 定位功能的简单使用
 
 ![get my Location](http://img.hoop8.com/attachments/1602/4513165027545.gif)
@@ -126,7 +126,7 @@ CollectionView简单使用
 
 ```
 
-####Project07 - Pull To Refresh
+#### Project07 - Pull To Refresh
 
 简单的下拉刷新功能
 
@@ -142,7 +142,7 @@ tableview这里使用的是纯代码 NavigationBar使用SB设置
 
 `闭包中如何避免循环引用，在后面需要多注意`
 
-####Project08 - Random Color Gradient
+#### Project08 - Random Color Gradient
 
 就是练习了一下渐变色的使用（CAGradientLayer）
 
@@ -175,7 +175,7 @@ gradientLayer.locations = locs
 ```
 
 
-####Project09 - ImageScroller
+#### Project09 - ImageScroller
 简单的查看大图，可以放大图片，左右滑动
 
 ![Image Scroller](http://img.hoop8.com/attachments/1602/7213165027545.gif)
@@ -195,7 +195,7 @@ imageView.image = image
 
 ```
 
-####Project10 - SplashVideo
+#### Project10 - SplashVideo
 使用一段视频作为背景
 
 ![Splash Video Background](http://img.hoop8.com/attachments/1602/6331790443611.gif)
@@ -218,13 +218,13 @@ Private：只能在当前源文件中使用的实体，称为私有实体。使�
 [访问控制参考文档](http://www.devtalking.com/articles/swift-access-control/)
 
 
-####Porject - 10 - Clear Table View
+#### Porject - 10 - Clear Table View
 ![clear](http://img.hoop8.com/attachments/1602/0973412352730.gif)
 
 主要就是仿照clear APP 实现一个颜色的渐变
 
 
-####Project - 11 - Login Animation
+#### Project - 11 - Login Animation
 
 一个简单的登录界面的动画
 
@@ -243,7 +243,7 @@ velocity：表示速度，数值越大移动的越快。值为 1.0 时，这个�
 [Spring动画参考](http://www.jianshu.com/p/9ed68b2b44d4)
 
 
-####Project - 12 - AnimatedTableViewCell
+#### Project - 12 - AnimatedTableViewCell
 
 实现了tableview内容加载的一个动画
 
@@ -259,7 +259,7 @@ velocity：表示速度，数值越大移动的越快。值为 1.0 时，这个�
 
 
 
-####Project - 13 - Twetter Splash
+#### Project - 13 - Twetter Splash
 
 一个模仿推特界面的一个动画
 
