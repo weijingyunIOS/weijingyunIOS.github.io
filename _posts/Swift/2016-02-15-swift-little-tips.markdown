@@ -154,3 +154,24 @@ UITableViewCell.self   UITableViewCell.classForCoder()
 ```
 
 [获取对象类型](http://swifter.tips/instance-type/)
+
+
+#### 5、使用Storyboard和纯代码创建Cell
+在Swift开发中我们有两种方式 创建一个tableviewcell 
+
+1、纯代码
+
+	一般需要重写init方法
+	
+	override init(style: UITableViewCellStyle, 
+							reuseIdentifier: String?)
+	
+	在使用cell之前要先注册
+	
+	self.tableView.registerClass(NewsCell.self, 
+				forCellReuseIdentifier: "newscell")
+2、Storyboard
+
+	需要在xib中定义好cell的结构，设置重用标示符，这样才可以重用
+	
+注意：如果重写了init方法，则默认使用纯代码的方式去构造这个cell，不会走awakefromnib方法，
