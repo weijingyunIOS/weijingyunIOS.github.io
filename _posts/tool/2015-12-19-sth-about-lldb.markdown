@@ -64,9 +64,9 @@ br s -n main
 LLDB有了一个启动时加载的文件~/.lldbinit，每次启动都会加载。所以一些初始化的事儿，我们可以写入~/.lldbinit中，比如给命令定义别名等。但是由于这时候程序还没有真正运行，也有部分操作无法在里面玩，比如设置断点。
 
 
-####3、LLDB常用命令
+#### 3、LLDB常用命令
 
-#####1、expression
+##### 1、expression
 语法格式
 
 ```
@@ -90,7 +90,7 @@ e.g 2:输出返回值
 ```
 `expression 可以简写做e`
 
-#####2、p & print & call
+##### 2、p & print & call
 其实这三个方法都可以看做是expression的别名，只是不再向expression那样可以设置命令选项（一般情况下，我们是不需要去设置命令选项的）
 
 print:打印出某个东西，可以是变量或者是表达式
@@ -115,7 +115,7 @@ e.g:
 
 ```
 
-#####3、PO
+##### 3、PO
 通常我们在控制台打印的时候，一般都是变量值或者是对象
 如果我们直接
 
@@ -141,7 +141,7 @@ expression -- self.view
 ```
 也能达到上面一样的效果
 
-#####4、thread backtrace & bt
+##### 4、thread backtrace & bt
 作用：打印线程的堆栈
 
 ```
@@ -173,7 +173,7 @@ e.g: crash happens
 
 `backtrace = bt` 可以使用简单的bt来代替backtrace
 
-#####5、thread return
+##### 5、thread return
 作用： return 返回，表示不再执行断点下面的代码，直接返回，`可以自己定义要返回的值`
 
 e.g: 
@@ -186,7 +186,7 @@ e.g:
 
 ```
 
-#####6、c & n & s & finish
+##### 6、c & n & s & finish
 
 ![icon](http://upload-images.jianshu.io/upload_images/1122433-17ba978ac411af3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -200,7 +200,7 @@ e.g:
 
 4、`finish`/`step-out`:等同于第四个按钮，表示直接走完当前方法，返回到上一层
 
-######7、breakpoint 
+###### 7、breakpoint 
 1、breakpoint set 设置断点
 
 ```
@@ -220,12 +220,12 @@ e.g:
 7、breakpoint delete 彻底删除所有断点（也可以删除指定行）
 
 
-######8、watchpoint 
+###### 8、watchpoint 
 `breakpoint`有一个孪生兄弟`watchpoint`。如果说`breakpoint`是对方法生效的断点，`watchpoint`就是对地址生效的断点
 
 基本用法和breakpoint 类似，这里不再详细说明
 
-######9、target
+###### 9、target
 
 对于target这个命令，我们用得最多的可能就是target modules lookup。由于LLDB给target modules取了个别名image，所以这个命令我们又可以写成image lookup
 
@@ -256,7 +256,7 @@ e.g : crash happens
 ```
 准确定位，崩溃出现的方法名，及在文件中的行号
 
-2、image lookup --name
+2、image lookup --name 
 
 e.g : 
 
