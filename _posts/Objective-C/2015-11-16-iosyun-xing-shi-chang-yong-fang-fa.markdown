@@ -3,10 +3,13 @@ layout: post
 title: "iOS运行时常用方法"
 date: 2014-11-16 13:51:49 +0800
 comments: true
-category:Objective-C
+category:Objective-C 
+tags: Runtime
 ---
-###一、Runtime常用使用情景
-####1、KVC 属性不存在时崩溃的解决
+
+### 一、Runtime常用使用情景
+
+#### 1、KVC 属性不存在时崩溃的解决
 	RuntimeObj *obj = [[RuntimeObj alloc]init]; 
 	[obj setValue:@"value4Name" forKey:@"objName"];
 	//	RuntimeObj 没有objName这个属性
@@ -47,7 +50,7 @@ category:Objective-C
     	}
 	}
 
-####2、动态创建函数
+#### 2、动态创建函数
 	
 	void dynamicMethod(id self, SEL _cmd)
 	{
@@ -101,7 +104,7 @@ category:Objective-C
     		char *method_types  OBJC2_UNAVAILABLE; //方法？？
     		IMP method_imp      OBJC2_UNAVAILABLE; //方法地址
 		}
-####动态挂载对象
+#### 动态挂载对象
 	//挂载对象所需要的参数（UIAlertView挂载对象） 
 	static const char kRepresentedObject; 
 	-(void)showAlert:(id)sender 
@@ -128,8 +131,8 @@ category:Objective-C
 	2. objc_setAssociatedObject 动态设置关联对象（也就是挂载）。
 	3. objc_getAssociatedObject 动态获取关联对象 看到没有这里也要	传 kRepresentedObject 这个标记，好像有点证明我前面的猜想了
 
-###二、API简析
-####1、方法的替换
+### 二、API简析
+#### 1、方法的替换
  	 Replaces the implementation of a method for a given class.
 	 * 
  	* @param cls The class you want to modify.
@@ -158,7 +161,7 @@ category:Objective-C
 	 参数2、你要替换的方法名
 	 参数3、想要替换原有类的方法的新方法
 	 参数4、方法参数类型描述的数组
-####2、获取属性列表 
+####  2、获取属性列表 
  	* Describes the instance variables declared by a class.
  	* 
  	* @param cls The class to inspect.
@@ -177,7 +180,7 @@ category:Objective-C
      
      	参数1：你要获取哪个类的属性列表
      	参数2：返回这个属性列表中属性的个数
-####3、获取属性列表的另一种方法
+#### 3、获取属性列表的另一种方法
 	 * Describes the properties declared by a class.
 	 * 
  	* @param cls The class you want to inspect.
@@ -200,7 +203,7 @@ category:Objective-C
    	copyPropertyList 只能获取@property声明的属性
    	copyIvarList 可以获取所有的包括使用{}声明的属性
 
-####动态增加一个方法
+#### 动态增加一个方法
  	* Adds a new method to a class with a given name and 	implementation.
  	* 
  	* @param cls The class to which to add a method.
@@ -226,7 +229,7 @@ category:Objective-C
     	参数4：返回的数组，描述方法的参数
     添加成功返回YES 否则返回NO
     	注意：class_addMethod会覆盖父类的方法实现，但是不会覆盖当前类中已经存在的方法，如果想修改当前类中存在的方法那么使用method_setImplementation
-####设置关联对象
+#### 设置关联对象
  	* Sets an associated value for a given object using a 	given key and association policy.
  	* 
  	* @param object The source object for the association.
@@ -256,7 +259,7 @@ category:Objective-C
     OBJC_ASSOCIATION_COPY = 01403          /**< Specifies 	that the associated object is copied.
                                             *   The 	association is made atomically. */
 	};
-####获取关联对象的值 
+#### 获取关联对象的值 
  	* Returns the value associated with a given object for a 	given key.
  	* 
  	* @param object The source object for the association.

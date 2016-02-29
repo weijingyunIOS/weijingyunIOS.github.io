@@ -9,7 +9,7 @@ tags: [iOS Objective-C]
 
 简介：本篇文章主要是介绍使用UIScrollView创建一个无限循环的图片轮播器，banner在许多应用中都有比较广泛的使用，希望这篇文章会对你有所帮助。
 
-####一、界面的搭建
+#### 一、界面的搭建
 这里的图片轮播期只是简单的一个UIScrollView+UIPageControl
 
 1、界面搭建
@@ -47,7 +47,7 @@ tags: [iOS Objective-C]
 ```
 注意：这里为什么要设置contentoffset为一个屏幕宽度的偏移下面会详细介绍
 
-####二、数据准备
+#### 二、数据准备
 
 1、思路：
 
@@ -63,7 +63,7 @@ tags: [iOS Objective-C]
     [self.banners addObject:banners.banners.firstObject];
 ```
 
-####三、处理滚动
+#### 三、处理滚动
 1、在ScrollView上图片添加完毕的时候一个图片轮播器已经基本搭建起来
 
 注意:不要忘记设置contentSize
@@ -123,7 +123,7 @@ tags: [iOS Objective-C]
 ```
 看了上面的代码 发现 So Easy ...... 只需要在滚动到第一张或者最后一张的时候设置一下scrollview的Contentoffset就OK了 是不是很简单啊
 
-####四、总结
+#### 四、总结
 	这只是一个最最基本的banner的实现，实际应用中可能会增加一些其他的元素，这里就不在赘述。希望这篇文章可以帮到你！
 	
 

@@ -6,7 +6,7 @@ category: Demo
 tags: [iOS Objective-C]
 
 ---
-####简介：
+#### 简介：
 
 	项目开发中通常都会用到打分的控件，所以这里简单的封装了一下，支持点击和滑动打分
 	
@@ -15,7 +15,7 @@ tags: [iOS Objective-C]
 
 
 
-####具体实现：
+#### 具体实现：
 
 通过添加手势(UIPanGestureRecognizer),根据手势的两种状态
 
@@ -70,7 +70,7 @@ self.allowIncompleteStar表示是否允许设置非全星
 ```
 self.shouldUseAnimation 表示是否需要添加动画
 
-####传值：
+#### 传值：
 这里可以根据这个方法将当前打分的值，传递给外面
 	
 ```
