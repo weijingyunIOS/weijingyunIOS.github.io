@@ -3,7 +3,8 @@ layout: post
 title: "面试笔记"
 date: 2015-07-23 14:47:05 +0800
 comments: true
-categories: 
+category: Tools
+
 ---
 ##面试题知识点总结
 ###1、枚举的定义

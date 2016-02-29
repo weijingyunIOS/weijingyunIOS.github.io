@@ -3,7 +3,8 @@ layout: post
 title: "iOS 基础动画"
 date: 2014-12-11 18:18:10 +0800
 comments: true
-categories: 
+category:Objective-C
+ 
 ---
 
 ###1、CALayer 图层介绍

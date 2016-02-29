@@ -3,7 +3,8 @@ layout: post
 title: "SDWebImage源码解析------缓存"
 date: 2016-01-27 14:44:12 +0800
 comments: true
-categories: 
+category:OpenSourceFrameWork
+ 
 ---
 ###SDWebImage缓存机制
 

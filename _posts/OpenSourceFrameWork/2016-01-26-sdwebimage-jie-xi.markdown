@@ -3,7 +3,8 @@ layout: post
 title: "SDWebImage 解析"
 date: 2016-01-26 10:48:05 +0800
 comments: true
-categories: 
+category:OpenSourceFrameWork
+ 
 ---
 
 ###目录

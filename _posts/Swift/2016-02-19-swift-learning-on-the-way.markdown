@@ -3,7 +3,8 @@ layout: post
 title: "Swift Learning On The Way"
 date: 2016-02-19 14:54:19 +0800
 comments: true
-categories: 
+category:Swift
+ 
 ---
 
 2015年已经过去了，iOS也做了有一段时间了。这两年Swift的势头越来越猛，所以，我觉得是时候开始系统的去学习和练习使用Swift了。

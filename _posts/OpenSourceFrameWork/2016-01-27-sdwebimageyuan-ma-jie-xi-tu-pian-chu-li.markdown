@@ -3,7 +3,8 @@ layout: post
 title: "SDWebImage源码解析---图片处理"
 date: 2016-01-27 18:47:31 +0800
 comments: true
-categories: 
+category:OpenSourceFrameWork
+ 
 ---
 ```
 	本篇文章主要是介绍了，在SDWebImage源码查看过程中的一些对于图片处理的方法，这些方法可能在平时的工作中也会用到，所以单独拿出来一篇文章来介绍这些方法。

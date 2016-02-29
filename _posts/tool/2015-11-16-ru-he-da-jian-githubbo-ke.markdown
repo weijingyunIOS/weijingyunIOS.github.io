@@ -3,6 +3,7 @@ layout: post
 title: "如何搭建GitHub博客"
 date: 2014-10-17 13:47:41 +0800
 comments: true
+category: Tools
 
 ---
 ###GitHub搭建博客：

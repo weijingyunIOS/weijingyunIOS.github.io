@@ -3,7 +3,7 @@ layout: post
 title: "iOS运行时常用方法"
 date: 2014-11-16 13:51:49 +0800
 comments: true
-categories: 
+category:Objective-C
 ---
 ###一、Runtime常用使用情景
 ####1、KVC 属性不存在时崩溃的解决

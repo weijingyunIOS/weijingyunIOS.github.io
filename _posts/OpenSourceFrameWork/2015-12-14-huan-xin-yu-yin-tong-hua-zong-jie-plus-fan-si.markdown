@@ -3,7 +3,8 @@ layout: post
 title: "环信-语音通话--总结+反思"
 date: 2015-12-14 19:55:46 +0800
 comments: true
-categories: 
+category:OpenSourceFrameWork
+
 ---
 
 ###简介

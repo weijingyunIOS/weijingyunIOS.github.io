@@ -3,7 +3,8 @@ layout: post
 title: "SDWebImage源码解析---缓存管理"
 date: 2016-01-27 16:57:41 +0800
 comments: true
-categories: 
+category:OpenSourceFrameWork
+ 
 ---
 
 ```

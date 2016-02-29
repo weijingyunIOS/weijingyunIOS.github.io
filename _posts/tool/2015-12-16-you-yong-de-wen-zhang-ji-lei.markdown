@@ -3,7 +3,8 @@ layout: post
 title: "有用的文章积累"
 date: 2015-10-16 21:29:03 +0800
 comments: true
-categories: 
+category: Tools
+
 ---
 
 一、内购相关

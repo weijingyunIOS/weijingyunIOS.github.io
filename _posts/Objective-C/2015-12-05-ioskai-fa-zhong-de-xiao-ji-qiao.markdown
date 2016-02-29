@@ -3,7 +3,8 @@ layout: post
 title: "iOS开发中的小技巧"
 date: 2015-05-05 21:46:14 +0800
 comments: true
-categories: 
+category:Objective-C
+ 
 ---
 
 1、

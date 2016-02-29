@@ -3,7 +3,8 @@ layout: post
 title: "Sth About LLDB"
 date: 2015-12-19 06:19:41 +0800
 comments: true
-categories: 
+category: Tools
+
 ---
 ####前言：
 	今天在微博上看到[小笨狼](http://www.jianshu.com/users/1f93e3b1f3da/latest_articles)分享的一片文章，其中比较详细的介绍了LLDB的使用，顿时感觉原来LLDB控制体可以做那么多事情，下面是我挑选的几个，开发中比较常用的命令

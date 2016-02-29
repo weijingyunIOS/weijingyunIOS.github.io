@@ -3,7 +3,8 @@ layout: post
 title: "iOS 跳转到设置中的某个界面的方法"
 date: 2015-12-05 21:25:26 +0800
 comments: true
-categories: 
+category:Objective-C
+
 ---
 前言：
 	在APP开发中 我们会经常遇到，要跳转到设置的某个界面提示用户去设置（开启定位或者其他功能），下面详细的介绍了，跳转到每一个界面的方法
