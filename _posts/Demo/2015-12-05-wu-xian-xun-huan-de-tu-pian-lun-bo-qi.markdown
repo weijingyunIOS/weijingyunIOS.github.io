@@ -2,9 +2,9 @@
 layout: post
 title: "无限循环的图片轮播器"
 date: 2015-04-05 19:27:52 +0800
-categories: Demo
+category: Demo
 tags: [iOS Objective-C]
-categories: 
+
 ---
 
 简介：本篇文章主要是介绍使用UIScrollView创建一个无限循环的图片轮播器，banner在许多应用中都有比较广泛的使用，希望这篇文章会对你有所帮助。

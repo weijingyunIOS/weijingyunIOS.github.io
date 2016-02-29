@@ -2,9 +2,9 @@
 layout: post
 title: "打分控件-支持滑动和点击打分"
 date: 2015-12-15 14:52:57 +0800
-categories: Demo
+category: Demo
 tags: [iOS Objective-C]
-categories: 
+
 ---
 ####简介：
 
