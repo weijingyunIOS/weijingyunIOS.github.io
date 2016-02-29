@@ -4,7 +4,6 @@ title: "Sth About LLDB"
 date: 2015-12-19 06:19:41 +0800
 comments: true
 category: Tools
-
 --- 
 
 #### 前言：
@@ -12,7 +11,7 @@ category: Tools
 	今天在微博上看到[小笨狼](http://www.jianshu.com/users/1f93e3b1f3da/latest_articles)分享的一片文章，其中比较详细的介绍了LLDB的使用，顿时感觉原来LLDB控制体可以做那么多事情，下面是我挑选的几个，开发中比较常用的命令
 	
 
-#### 1、基本语法 
+#### 1、基本语法
 
 首先还是先看一下最近本的语法，这会让我们会更容易的去理解和记住下面的命令
 
@@ -48,7 +47,7 @@ breakpoint set - n main
 
 4、`argument`: main 表示方法名为main
 
-####2、唯一匹配原则
+#### 2、唯一匹配原则
 
 LLDB的命令遵循唯一匹配原则：假如根据前n个字母已经能唯一匹配到某个命令，则只写前n个字母等效于写下完整的命令。
 e.g:
